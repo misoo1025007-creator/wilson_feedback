@@ -167,15 +167,15 @@ var STORE_DATA_RAW={};
 var _SYS="\ub2f9\uc2e0\uc740 \uc70c\uc2a8 \ud14c\ub2c8\uc2a4 \ube0c\ub79c\ub4dc MD \uc5b4\uc2dc\uc2a4\ud134\ud2b8\uc785\ub2c8\ub2e4. JSON\uc73c\ub85c\ub9cc \uc751\ub2f5\ud558\uc138\uc694. \uaddc\uce59: \ub18d\uad6c\uacf5 \uc57c\uad6c\uae00\ub7ec\ube0c \ub9ac\uc624\ub354 \uc81c\uc678. JSON\ub9cc \uc751\ub2f5.";
 WEEK_ORDER=["5월1W","5월2W","5월3W","5월4W","6월1W","6월2W","6월3W","6월4W","7월1W","7월2W","7월3W","7월4W","7월5W","8월1W"];
 var G_CHECK='즉시체크';
-var weekStore={};
-WEEK_ORDER.forEach(function(w){
-  if(SUMMARIES[w]) weekStore[w]={date:SUMMARIES[w].date||'',summary:SUMMARIES[w],storeData:buildSD(w)};
-});
 function buildSD(week){
   var out={};
   Object.keys(STORE_DATA_RAW).forEach(function(s){if(STORE_DATA_RAW[s][week])out[s]=STORE_DATA_RAW[s][week];});
   return out;
 }
+var weekStore={};
+WEEK_ORDER.forEach(function(w){
+  if(SUMMARIES[w]) weekStore[w]={date:SUMMARIES[w].date||'',summary:SUMMARIES[w],storeData:buildSD(w)};
+});
 var cur=WEEK_ORDER[WEEK_ORDER.length-1];
 function renderAll(){renderTabs();renderSidebar();renderMain();renderStoreBtns();}
 function renderTabs(){
